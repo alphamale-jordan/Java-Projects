@@ -1,0 +1,68 @@
+public class IceTask20 {
+    
+       
+    private static int []monthlyTotal = new int[3];
+    private static int []phoneTotal = new int[3];
+    public static int sales[][] = {{30, 15, 35},
+                                   {20, 25, 30},
+                                   {25, 11, 32}};
+    public static String phoneName[]= {"IPhone 7","Samsung S8","Huawei Mate 10"};
+    
+    public IceTask20(){
+        calcMonthlyTotals();
+        calcPhoneTotals();
+        printSlip();
+    }
+ 
+    
+    public static void calcMonthlyTotals(){
+        for(int col = 0; col<sales[0].length; col++){         
+            for(int row = 0; row<sales.length; row++){
+                monthlyTotal[col]+= sales[row][col];//add all values in a column
+            }
+        }
+        
+    }
+    
+    //calculate the total sales per phone type
+    public static void calcPhoneTotals(){
+        for(int row = 0; row<sales.length; row++){         
+            for(int col = 0; col<sales[row].length; col++){
+                phoneTotal[row]+= sales[row][col];//add all values in a row
+            }
+        }
+    }
+    public static void printSlip(){
+        int total = 0;
+        int total2 = 0;
+        int count = 0;
+        int num = 0;
+          //prints out the months aswell as total for each device.
+          System.out.printf("%7s", "                     JAN    FEB    MAR     TOTAL");
+          System.out.println("");
+          System.out.println("***********************************************************");
+        
+        //for loop that prints out each row of phone names array.
+        for(int ARRAY_ROW=0; ARRAY_ROW<sales.length;ARRAY_ROW++){
+            System.out.print( phoneName[ARRAY_ROW] + '\t'); 
+               //for loop that prints out each element of sales array.
+               for(int ARRAY_COLUMN=0; ARRAY_COLUMN<sales[ARRAY_ROW].length;ARRAY_COLUMN++){
+                     System.out.printf("%7s", sales[ARRAY_ROW][ARRAY_COLUMN]);
+                     total = sales[ARRAY_ROW][ARRAY_COLUMN] + total;
+                   }
+             // for each row of an array the total is calculated and printed out at the end of the columns 
+             System.out.print("      "+total);
+             System.out.println('\n');
+            
+             total =0;
+            }
+           for(int ARRAY_ROW=0; ARRAY_ROW<monthlyTotal.length;ARRAY_ROW++){
+              monthlyTotal[ARRAY_ROW] = sales[0][count] + sales[1][count] +sales[2][count];
+              count++;
+           }
+          
+            System.out.print('\t'+"        ");
+        for(int ARRAY_ROW=0; ARRAY_ROW<monthlyTotal.length;ARRAY_ROW++)
+            System.out.printf("%7s",monthlyTotal[ARRAY_ROW]);
+           
+    }

@@ -1,0 +1,128 @@
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author Tshidiso Modiko
+ */
+public class Customer {
+    //Variables for the Super class
+   public  String customerName, contactNumber;
+   public  double productPrice,monthlyRepaymentAmount,totalDue;
+   public  int numberOfMonths;
+    
+    public Customer (){
+     //constructor for the customer class
+     /* setter methods that assign prompt the user for input and assing that
+     *input into variables
+     */
+    setCustomerName();
+    setCustomerNumber();
+    setProductPrice();
+    setNumberOfMonths();
+    calculate_Repayment();
+    }
+    
+    public String getCustomerName(){
+        return this.customerName;
+        //get method for customer name
+    }
+    private void setCustomerName (){
+        this.customerName = JOptionPane.showInputDialog(null, "plese enter the customers name");
+        //set methode for customer name
+    }
+     
+     
+    public String getCustomerNumber(){
+        return this.contactNumber;
+    }
+    private void setCustomerNumber (){
+        this.contactNumber = JOptionPane.showInputDialog(null, "plese enter the customers contact numbers");
+    }//(Farrell,2016)
+    
+    public double getProductPrice(){
+        return this.productPrice;
+    }//(Farrell,2016)
+    private void setProductPrice(){
+        String p_Price = JOptionPane.showInputDialog(null, " plese enter the price of the product");
+        this.productPrice = Double.parseDouble(p_Price);
+    }
+    
+    public int getNumberOfMonths(){
+        return this.numberOfMonths;
+    }
+    private void setNumberOfMonths(){
+        //method that prompts the user for number of months 
+        String N_Months = JOptionPane.showInputDialog(null, "Plese enter the number of repayments Months");
+        this.numberOfMonths = Integer.parseInt(N_Months);
+        //while loop that propmts the user for the number of months under 12 motnhs
+        while (numberOfMonths > 12){
+        JOptionPane.showMessageDialog(null,"***NOTE: REPAYMENT MONTHS CANNOT BE MORE THAN 12 MONTHS***");
+        N_Months = JOptionPane.showInputDialog(null, "Plese enter the number of repayments Months");
+        this.numberOfMonths = Integer.parseInt(N_Months); 
+        }
+    }
+    //method that calculates the monthly repayable amount
+    public double calculate_Repayment(){
+        this.monthlyRepaymentAmount = (this.productPrice / this.numberOfMonths);
+        this.totalDue = this.monthlyRepaymentAmount * this.numberOfMonths;
+        return this.monthlyRepaymentAmount;
+    }
+       
+    
+    
+}
+import customer.Customer;
+
+/**
+ *
+ * @author Tshidiso Modiko
+ */
+public class Finance_Period extends Customer {
+    //constructor
+    public Finance_Period(){
+        calculate_Repayment();
+    }
+    @Override
+     public double calculate_Repayment (){
+         //method that overrides calculate_Repayment();
+         //(Geeks Of God, 2019)
+      if (this.numberOfMonths > 3){   
+        monthlyRepaymentAmount = ((this.productPrice*0.24) + this.productPrice)/this.numberOfMonths;
+        }
+        else {
+           this.monthlyRepaymentAmount = (this.productPrice / this.numberOfMonths);
+        return this.monthlyRepaymentAmount;
+        }
+      this.totalDue = this.monthlyRepaymentAmount * this.numberOfMonths;
+      return monthlyRepaymentAmount;
+    }
+}
+import customer.Finance_Period;
+import customer.Customer;
+import javax.swing.JOptionPane;
+
+
+public class main {
+    
+    
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Customer obj1 = new Customer();
+        //JOptionpane that prints out the results
+        //(Farrell,2016)
+           JOptionPane.showMessageDialog(null,  "Customer Name: " + obj1.customerName +
+                                      "\n" + "Customer Contacts: " + obj1.contactNumber +
+                                      "\n" + "Product Amount: " + "R" + obj1.productPrice +
+                                      "\n" + "Repayment Months: " + obj1.numberOfMonths +
+                                      "\n" + "Monthly Repayments: " +"R" + obj1.monthlyRepaymentAmount +
+                                      "\n" + "Total Due: " + "R" + obj1.totalDue);
+       Finance_Period obj2 = new Finance_Period();
+       
+           JOptionPane.showMessageDialog(null,  "Customer Name: " + obj2.customerName +
+                                      "\n" + "Customer Contacts: " + obj2.contactNumber +
+                                      "\n" + "Product Amount: " + "R" + obj2.productPrice +
+                                      "\n" + "Repayment Months: " + obj2.numberOfMonths +
+                                      "\n" + "Monthly Repayments: " +"R" + obj2.monthlyRepaymentAmount +
+                                      "\n" + "Total Due: " + "R" + obj2.totalDue);
+    }
+}

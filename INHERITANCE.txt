@@ -1,0 +1,131 @@
+import java.util.Scanner;
+
+/**
+ *
+ * @author Tshidiso Modiko
+ */
+public class student {
+    //VARIABLES FOR THE STUDENT CLASS
+    public String student, studNumber;
+    double testResult, assignmentResult, Exam;
+    //CONSTRUCTOR FOR STUDENT CLASS
+    public student(String student, String studNumber, double testResult, double assignmentResult, double Exam){
+        this.student = student;
+        this.studNumber = studNumber;
+        this.testResult = testResult;
+        this.assignmentResult  = assignmentResult;
+        this.Exam = Exam;
+    }
+    
+    public String getStudNumber(){
+        //GET METHOD FOR STUDENT NUMBER
+        return this.studNumber;
+    }
+    
+    public String getStudent(){
+        //GET METHOD FOR STUDENT NAME
+        return this.student;
+    }
+    
+     
+    public double getSTestResults(){
+        //GET METHOD FOR TEST RESULT
+        return this.testResult;
+    }
+   
+    public double getAssingmentResult(){
+        // GET METHOD FOR ASSIGNMENT RESULT
+        return this.assignmentResult;
+    }
+ 
+     
+    public double getExamResults(){
+        //GET METHOD FOR EXAM RESULTS
+        return this.Exam;
+    }
+  public interface iReport { 
+    public void print_Out();   
+} 
+    
+  
+    
+    public static void main(String[] args) {
+        // TODO code application logic here
+        //VARIABLES TO FILL PARAMETERS OF CONSTRUCTOR.
+       String student,studNumber; 
+       double testResult, assignmentResult, Exam;
+       Scanner Input = new Scanner(System.in);
+       System.out.print("Student Name>>    ");
+       //STUDENT NAME VARIABLE
+       student = Input.nextLine();
+       System.out.print("Student Number>>    ");
+       //STUDENT NUMBER VARIABLE 
+       studNumber = Input.nextLine();
+       System.out.print("Student test result>>    ");
+       //STUDENT TEST RESULT VARAIBLE
+       testResult = Input.nextDouble();
+       System.out.print("Student assingment result>>    ");
+       assignmentResult = Input.nextDouble();
+       System.out.print("Student exam result>>    ");
+       Exam = Input.nextDouble();
+       //STUDENT_RESULT IS SUBCLASS OF THE STUDENT SUPERCLASS
+       Student_Results obj1 = new Student_Results(student,studNumber,testResult,assignmentResult, Exam);
+       obj1.setExamResults(testResult);
+       obj1.setAssingmentResults(assignmentResult);
+       obj1.setTestResults(Exam);
+       obj1.print_Out();
+        
+       
+    }
+    
+}
+public class Student_Results extends student{
+    
+    public Student_Results(String student, String studNumber, double testResult, double assignmentResult, double Exam) {
+        super(student, studNumber, testResult, assignmentResult, Exam);
+    }
+        public void setStudentNumber(String studentNumber){
+        //SET METHOD FOR STUDENT NUMBER
+        this.studNumber = studentNumber;
+    }
+        public void setStudent(String student){
+        //SET METHOD FOR STUDENT NAME
+        this.student = student;
+    }
+        public void setTestResults(double Test){
+        //SET METHOD FOR TEST RESULT
+        Test = (Test*0.25);
+        this.testResult = Test;
+    }
+        public void setAssingmentResults(double Assingment){
+        //SET METHOD FOR ASSINGMENT RESULT
+        Assingment = (Assingment*0.25);
+        this.assignmentResult = Assingment;
+    }
+        public void setExamResults(double examResult){
+        //SET METHOD FOR ASSINGMENT RESULT
+        examResult = (examResult*0.50);
+        this.Exam = examResult;
+    }
+      public void print_Out(){
+        //PRINT OUT METHOD FOR STUDENT RESULTS
+       System.out.println("STUDENT RESULTS");
+       System.out.println("******************************************************");
+        
+                System.out.println("Student:                    " + student);
+        
+                System.out.println("Student Number:             " + studNumber);
+        
+                System.out.println("Test:                       " + testResult +"%");
+    
+                System.out.println("Assingment:                 " + assignmentResult +"%");
+      
+                System.out.println("Exam:                       " + Exam +"%");
+                double total = (this.Exam + this.assignmentResult + this.testResult);
+                System.out.println("total marks:                " + total);
+                
+        System.out.println("******************************************************");
+    }
+    
+    
+}

@@ -1,0 +1,54 @@
+public class IceTask1 {
+    
+    int [][] numbers = new int [5][10];
+    int[] mixNumbers = {5, 15, 1, 10, 3, 75};
+    public IceTask1(){
+       POPULATE();
+       print();
+       sortNumbers();
+    }
+    public void POPULATE(){
+        int num=1;
+       		for(int ARRAY_ROW=0; ARRAY_ROW<5;ARRAY_ROW++)
+                {
+                for(int ARRAY_COLUMN=0; ARRAY_COLUMN<10;ARRAY_COLUMN++)
+                {   
+           	numbers[ARRAY_ROW][ARRAY_COLUMN]= num;
+                num++;
+                }
+                
+                }
+    }
+    public void print(){
+        int x = 0;
+        int y = 0;
+        for(int ARRAY_ROW=0; ARRAY_ROW<numbers.length;ARRAY_ROW++){
+        for(int ARRAY_COLUMN=0; ARRAY_COLUMN<numbers[ARRAY_ROW].length;ARRAY_COLUMN++){
+ 
+        System.out.printf("%5s",numbers[ARRAY_ROW][ARRAY_COLUMN]);
+        
+         }
+        System.out.println('\n');
+        }
+    }
+   public void sortNumbers (){
+    int b =0;
+    int a = 0;
+    int temp;
+       for(int ARRAY_ROW=0; ARRAY_ROW<mixNumbers.length;ARRAY_ROW++){
+            for(int ARRAY_COLUMN=0; ARRAY_COLUMN<(mixNumbers.length-1);ARRAY_COLUMN++){{
+               if (mixNumbers[ARRAY_COLUMN] > mixNumbers[ARRAY_COLUMN +1])
+               {
+                   temp = mixNumbers[ARRAY_COLUMN];
+                   mixNumbers[ARRAY_COLUMN] = mixNumbers[ARRAY_COLUMN+1];
+                   mixNumbers[ARRAY_COLUMN + 1] = temp;
+               }
+           }
+        }}
+        for(int ARRAY_COLUMN=0; ARRAY_COLUMN<6;ARRAY_COLUMN++){
+ 
+        System.out.printf("%5s",mixNumbers[ARRAY_COLUMN]);
+        
+      }
+      
+   }

@@ -1,0 +1,56 @@
+DECLEAR AN ARRAY 
+   SINGLE DIMANSIONAL
+	INT ARRAY 
+		int [] "array name" = new int [number of elements];
+	STRING ARRAY
+		String [] "array name" = new String [number of elements];
+   TWO DIMANSIONAL
+	INT ARRAY
+		int  [][] "NAME OF ARRAY";
+	STRING ARRAY
+		String  [][] "NAME OF ARRAY";
+DECLEAR SIZE OF ARRAY
+   SINGLE DIMANSIONAL
+		Scanner Input = new Scanner (System.in);
+       		ARRAY_SIZE = Input.nextInt();
+       		this."ARRAY NAME" = new  String[ARRAY_SIZE];
+   TWO DIMANSIONA
+		Scanner Input = new Scanner (System.in);
+       		ARRAY_ROW= Input.nextInt();
+		ARRAY_COLOM= Input.nextInt();
+      		this."ARRAY NAME" = new  String[ARRAY_ROW][ARRAY_COLOM];
+POPULATING ARRAY
+   SINGLE DIMANSIONAL
+		int count =1;
+      		for(int ARRAY_ROW=0; arr<Array.length;ARRAY_ROW++){
+           	System.out.println("enter value for row" + count);
+		Array[ARRAY_ROW]= Input.nextLine();
+           	count++;
+      		}
+   TWO DIMANSIONAL
+		int count = 1;
+       		for(int ARRAY_ROW=0; arr<Array.length;ARRAY_ROW++){
+            	int ARRAY_COLUMN = 0;
+            	System.out.println("enter COLUMN 1 OF ROW " + count);
+           	Array[ARRAY_ROW][ARRAY_COLUMN]= Input.nextLine();
+           	ARRAY_COLUMN++;
+            	System.out.println("enter COLUMN 2 OF ROW " + count);
+          	Array[ARRAY_ROW][ARRAY_COLUMN]= Input.nextLine();
+           	ARRAY_COLUMN;
+            	System.out.println("enter COLUMN 3 OF ROW " + count);
+            	Array[ARRAY_ROW][ARRAY_COLUMN]= Input.nextLine();
+            	count++;
+      		}
+SORTING AN ARRAY
+		int [] ARRAY = {10,20,30,50};
+      		int b;
+      		int a;
+      		for (a = 0; a < ARRAY.length; ++a){
+           	for (b = 0; b < ARRAY.length; ++b)
+               	if (ARRAY[b] > ARRAY[b +1])
+               	{
+                   int temp =ARRAY[b];
+                   ARRAY[b] = ARRAY[b+1];
+                   ARRAY[b + 1] = temp;
+               	}
+        	}

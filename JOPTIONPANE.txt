@@ -1,0 +1,13 @@
+DOUBLE
+	String High = JOptionPane.showInputDialog
+	(null,"Enter the third highest point of the chart in the past 2 days" );
+         this.high3 = Double.parseDouble(High);
+INT
+	String input = JOptionPane.showInputDialog
+	(null,"Hello Tshidiso, what stratagy would you wish to analyse the market with today?"
+	 +'\n' + "press (1) to determin revers." + '\n'
+	 + "press (2) to determin diraction of the market." );
+      int Input;
+      Input = Integer.parseInt(input); 
+MESSAGE
+	JOptionPane.showMessageDialog(null,"buy");
